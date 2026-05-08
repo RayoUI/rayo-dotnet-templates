@@ -1,0 +1,58 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rayo.Templates", "Rayo.Templates.csproj", "{C5DC0131-F2EE-ECCF-18CA-775E82DE1105}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "desktop", "desktop", "{7A1224A0-F22D-34FF-DE0A-A058FAFFD90C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "crossplatform", "crossplatform", "{43346D3C-9369-9DD4-EA15-5F7D7B75B60B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayoDesktopApp", "desktop\RayoDesktopApp.csproj", "{231F3F3C-49E2-AE84-87CE-92799FCF71B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayoCrossPlatformApp", "crossplatform\RayoCrossPlatformApp\RayoCrossPlatformApp.csproj", "{870172B9-BDEF-1AB0-FB7C-28E28ADB8F51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayoCrossPlatformApp.Android", "crossplatform\RayoCrossPlatformApp.Android\RayoCrossPlatformApp.Android.csproj", "{40F1B43E-D207-C88A-4578-C230EDA8DE06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayoCrossPlatformApp.Desktop", "crossplatform\RayoCrossPlatformApp.Desktop\RayoCrossPlatformApp.Desktop.csproj", "{7C2E2B39-1B09-0B92-C98C-3D86F2A1F238}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5DC0131-F2EE-ECCF-18CA-775E82DE1105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5DC0131-F2EE-ECCF-18CA-775E82DE1105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5DC0131-F2EE-ECCF-18CA-775E82DE1105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5DC0131-F2EE-ECCF-18CA-775E82DE1105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{231F3F3C-49E2-AE84-87CE-92799FCF71B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{231F3F3C-49E2-AE84-87CE-92799FCF71B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{231F3F3C-49E2-AE84-87CE-92799FCF71B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{231F3F3C-49E2-AE84-87CE-92799FCF71B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{870172B9-BDEF-1AB0-FB7C-28E28ADB8F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{870172B9-BDEF-1AB0-FB7C-28E28ADB8F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{870172B9-BDEF-1AB0-FB7C-28E28ADB8F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{870172B9-BDEF-1AB0-FB7C-28E28ADB8F51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40F1B43E-D207-C88A-4578-C230EDA8DE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F1B43E-D207-C88A-4578-C230EDA8DE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F1B43E-D207-C88A-4578-C230EDA8DE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F1B43E-D207-C88A-4578-C230EDA8DE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2E2B39-1B09-0B92-C98C-3D86F2A1F238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2E2B39-1B09-0B92-C98C-3D86F2A1F238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2E2B39-1B09-0B92-C98C-3D86F2A1F238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2E2B39-1B09-0B92-C98C-3D86F2A1F238}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{231F3F3C-49E2-AE84-87CE-92799FCF71B7} = {7A1224A0-F22D-34FF-DE0A-A058FAFFD90C}
+		{870172B9-BDEF-1AB0-FB7C-28E28ADB8F51} = {43346D3C-9369-9DD4-EA15-5F7D7B75B60B}
+		{40F1B43E-D207-C88A-4578-C230EDA8DE06} = {43346D3C-9369-9DD4-EA15-5F7D7B75B60B}
+		{7C2E2B39-1B09-0B92-C98C-3D86F2A1F238} = {43346D3C-9369-9DD4-EA15-5F7D7B75B60B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9D9D63A-CB24-496F-A00F-2EB0DF95234A}
+	EndGlobalSection
+EndGlobal

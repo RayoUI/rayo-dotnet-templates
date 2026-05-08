@@ -1,0 +1,53 @@
+name: publish-nuget
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Resolve package version
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF_NAME
+          if ([string]::IsNullOrWhiteSpace($version) -or -not $version.StartsWith("v")) {
+            Write-Error "Expected a tag in the form vX.Y.Z."
+          }
+
+          "PACKAGE_VERSION=$($version.Substring(1))" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Pack template package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path artifacts | Out-Null
+          dotnet pack Rayo.Templates.csproj -c Release --configfile NuGet.Config --nologo -o artifacts -p:PackageVersion=${env:PACKAGE_VERSION}
+
+      - name: Publish package to NuGet
+        shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) {
+            Write-Error "The NUGET_API_KEY secret is not configured."
+          }
+
+          $package = Get-ChildItem -Path artifacts -Filter *.nupkg | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+          if ($null -eq $package) {
+            Write-Error "No package was generated."
+          }
+
+          dotnet nuget push $package.FullName --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate

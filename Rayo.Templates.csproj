@@ -7,6 +7,10 @@
     <Title>Rayo Templates</Title>
     <Description>dotnet new templates for creating Rayo desktop and cross-platform applications.</Description>
     <Authors>RayoUI</Authors>
+    <PackageProjectUrl>https://github.com/RayoUI/rayo-dotnet-templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RayoUI/rayo-dotnet-templates</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>dotnet-new;template;rayo;ui;desktop;android</PackageTags>
     <PackageType>Template</PackageType>
     <PackageReadmeFile>README.md</PackageReadmeFile>

@@ -1,0 +1,69 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Pack template package
+        shell: pwsh
+        run: |
+          dotnet pack Rayo.Templates.csproj -c Release --configfile NuGet.Config --nologo
+
+      - name: Install template package into local hive
+        shell: pwsh
+        run: |
+          $package = Get-ChildItem -Path bin/Release -Filter *.nupkg | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+          if ($null -eq $package) {
+            Write-Error "No template package was produced."
+          }
+
+          $hive = Join-Path $PWD ".template-hive-ci"
+          if (Test-Path $hive) {
+            Remove-Item -LiteralPath $hive -Recurse -Force
+          }
+
+          dotnet new install $package.FullName --debug:custom-hive $hive
+
+      - name: Generate desktop template
+        shell: pwsh
+        run: |
+          $hive = Join-Path $PWD ".template-hive-ci"
+          $outDir = Join-Path $PWD "artifacts/ci-desktop"
+          if (Test-Path $outDir) {
+            Remove-Item -LiteralPath $outDir -Recurse -Force
+          }
+
+          dotnet new rayo-desktop -n CiDesktop -o $outDir --debug:custom-hive $hive
+
+      - name: Generate cross-platform template
+        shell: pwsh
+        run: |
+          $hive = Join-Path $PWD ".template-hive-ci"
+          $outDir = Join-Path $PWD "artifacts/ci-crossplatform"
+          if (Test-Path $outDir) {
+            Remove-Item -LiteralPath $outDir -Recurse -Force
+          }
+
+          dotnet new rayo-crossplatform -n CiCrossPlatform -o $outDir --debug:custom-hive $hive
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rayo-templates-package
+          path: bin/Release/*.nupkg
+
