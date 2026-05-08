@@ -10,7 +10,7 @@ This package contains `dotnet new` templates for creating Rayo applications with
 ## Pack locally
 
 ```powershell
-dotnet pack Templates\Rayo.Templates.csproj -c Release
+dotnet pack Rayo.Templates.csproj -c Release
 ```
 
 ## Uninstall locally
@@ -22,7 +22,7 @@ dotnet new uninstall Rayo.Templates
 ## Install locally
 
 ```powershell
-dotnet new install Templates\bin\Release\Rayo.Templates.*.nupkg
+dotnet new install bin\Release\Rayo.Templates.*.nupkg
 ```
 
 ## Create a desktop app
