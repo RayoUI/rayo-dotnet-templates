@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-android</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <ApplicationTitle>Rayo Cross-Platform App</ApplicationTitle>
+    <ApplicationId>com.companyname.rayocrossplatformapp</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <NoWarn>$(NoWarn);XA0141</NoWarn>
+    <RootNamespace>RayoCrossPlatformApp.Android</RootNamespace>
+    <AssemblyName>RayoCrossPlatformApp.Android</AssemblyName>
+    <RayoVersion>0.1.8</RayoVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <RunAOTCompilation>false</RunAOTCompilation>
+    <UseInterpreter>true</UseInterpreter>
+    <AndroidEnableProfiledAOT>false</AndroidEnableProfiledAOT>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RayoCrossPlatformApp\RayoCrossPlatformApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Rayo.Hosting.Android" Version="$(RayoVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidResource Include="Resources\**" />
+  </ItemGroup>
+
+</Project>

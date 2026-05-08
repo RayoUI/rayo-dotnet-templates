@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
+    <RootNamespace>RayoCrossPlatformApp</RootNamespace>
+    <AssemblyName>RayoCrossPlatformApp</AssemblyName>
+    <RayoVersion>0.1.8</RayoVersion>
+    <SourceGeneratorNamespace>$(RootNamespace).Extensions</SourceGeneratorNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Rayo" Version="$(RayoVersion)" />
+    <PackageReference Include="Rayo.Hosting.Abstractions" Version="$(RayoVersion)" />
+    <PackageReference Include="Rayo.FluentApiGenerator" Version="$(RayoVersion)" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <CompilerVisibleProperty Include="RootNamespace" />
+    <CompilerVisibleProperty Include="SourceGeneratorNamespace" />
+    <Compile Remove="Generated\**" />
+  </ItemGroup>
+
+</Project>

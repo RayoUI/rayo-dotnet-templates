@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "RayoUI",
+  "classifications": [ "Rayo", "Desktop", "Android", "UI" ],
+  "identity": "Rayo.Templates.CrossPlatform",
+  "name": "Rayo Cross-Platform App",
+  "shortName": "rayo-crossplatform",
+  "description": "Creates a shared Rayo UI project with desktop and Android hosts using the published Rayo NuGet packages.",
+  "sourceName": "RayoCrossPlatformApp",
+  "preferNameDirectory": true,
+  "primaryOutputs": [
+    {
+      "path": "RayoCrossPlatformApp/RayoCrossPlatformApp.csproj"
+    },
+    {
+      "path": "RayoCrossPlatformApp.Desktop/RayoCrossPlatformApp.Desktop.csproj"
+    },
+    {
+      "path": "RayoCrossPlatformApp.Android/RayoCrossPlatformApp.Android.csproj"
+    }
+  ]
+}

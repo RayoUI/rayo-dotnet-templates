@@ -1,0 +1,16 @@
+bin/
+obj/
+artifacts/
+
+.appdata/
+.dotnet/
+.template-hive/
+.nuget/
+.userprofile/
+
+*.nupkg
+*.snupkg
+
+*.user
+*.suo
+*.cache
