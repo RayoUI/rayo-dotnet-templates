@@ -47,7 +47,7 @@ public sealed class MainView : ViewBase<MainViewModel>
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Button()
-                            .Text("Increment")
+                            .Text("Click me")
                             .Width(160)
                             .Height(48)
                             .OnTapped(ViewModel.IncrementCounter)

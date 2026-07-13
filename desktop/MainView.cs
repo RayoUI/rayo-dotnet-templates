@@ -50,7 +50,6 @@ public class MainView : Component
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Button()
                             .Text("Click me")
-                            .FontSize(20)
                             .Width(160)
                             .Height(48)
                             .OnTapped(() => _counter.Value++)

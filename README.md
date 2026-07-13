@@ -49,7 +49,7 @@ dotnet new uninstall Rayo.Templates
 dotnet new install bin\Release\Rayo.Templates.*.nupkg
 ```
 
-## Uninstall from nugets 
+## Install from nugets 
 
 ```powershell
 dotnet new install Rayo.Templates
