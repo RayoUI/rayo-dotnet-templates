@@ -11,6 +11,7 @@
     <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
     <RootNamespace>RayoMvvmApp</RootNamespace>
     <AssemblyName>RayoMvvmApp</AssemblyName>
+    <ApplicationIcon>Assets\AppIcon\AppIcon.ico</ApplicationIcon>
     <RayoVersion>0.1.10</RayoVersion>
     <SourceGeneratorNamespace>$(RootNamespace).Extensions</SourceGeneratorNamespace>
     <HotReloadEnabled Condition="'$(Configuration)' == 'Debug'">true</HotReloadEnabled>
@@ -27,6 +28,10 @@
     <CompilerVisibleProperty Include="RootNamespace" />
     <CompilerVisibleProperty Include="SourceGeneratorNamespace" />
     <Compile Remove="Generated\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\AppIcon\AppIcon.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

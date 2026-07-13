@@ -26,6 +26,7 @@ public static class Program
                 config.CanResize = true;
                 config.VSync = true;
                 config.Samples = 4;
+                config.SetIconFromFile(Path.Combine(AppContext.BaseDirectory, "Assets/AppIcon", "AppIcon.png"));
 
                 if (host.GetNativeWindowConfiguration(config) is { } nativeConfig)
                 {
