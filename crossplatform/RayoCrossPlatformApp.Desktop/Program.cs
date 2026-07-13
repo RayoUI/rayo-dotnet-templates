@@ -15,8 +15,8 @@ public static class Program
 #if DEBUG
                 context.EnableDevTools = true;
 #endif
-                context.ConfigureServices(RayoCrossPlatformApp.AppSetup.ConfigureServices);
-                context.SetUI<RayoCrossPlatformApp.MainView>();
+                context.ConfigureServices(AppSetup.ConfigureServices);
+                context.SetUI<MainView>();
             },
             configureWindow: config =>
             {

@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Rayo.Core.Platform;
 using Rayo.Hosting.Desktop;
 
@@ -15,7 +16,10 @@ public static class Program
 #if DEBUG
                 context.EnableDevTools = true;
 #endif
-                context.ConfigureServices(AppSetup.ConfigureServices);
+                context.ConfigureServices(services =>
+                {
+                    services.AddTransient<MainViewModel>();
+                });
                 context.SetUI<MainView>();
             },
             configureWindow: config =>

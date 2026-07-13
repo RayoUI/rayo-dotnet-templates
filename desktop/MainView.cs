@@ -2,13 +2,21 @@ using Rayo;
 using Rayo.Controls;
 using Rayo.Core;
 using Rayo.Layout;
+using Rayo.Reactivity;
 using Rayo.Rendering;
 
 namespace RayoDesktopApp;
 
 public class MainView : Component
 {
-    private int _clickCount;
+    private readonly Signal<int> _counter;
+    private readonly Computed<string> _counterText;
+
+    public MainView()
+    {
+        _counter = UseSignal(0);
+        _counterText = UseComputed(() => $"Clicks: {_counter.Value}");
+    }
 
     public override VisualElement Build()
     {
@@ -29,28 +37,23 @@ public class MainView : Component
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Label()
-                            .Text("Your first Rayo desktop app is running with the published NuGet packages.")
+                            .Text("Your first Rayo desktop app.")
                             .FontSize(16)
                             .Foreground(new Color(180, 188, 204))
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Label()
-                            .Text($"Clicks: {_clickCount}")
+                            .Text(_counterText)
                             .FontSize(20)
                             .Foreground(new Color(110, 231, 183))
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Button()
                             .Text("Click me")
+                            .FontSize(20)
                             .Width(160)
                             .Height(48)
-                            .OnTapped(OnButtonTapped)
+                            .OnTapped(() => _counter.Value++)
                     ));
-    }
-
-    private void OnButtonTapped()
-    {
-        _clickCount++;
-        Rebuild();
     }
 }

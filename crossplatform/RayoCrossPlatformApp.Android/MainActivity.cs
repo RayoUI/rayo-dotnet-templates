@@ -1,7 +1,6 @@
-using Android.App;
 using Android.Content.PM;
-using Rayo.Hosting.Android;
 using Rayo.Hosting.Abstractions;
+using Rayo.Hosting.Android;
 
 namespace RayoCrossPlatformApp.Android;
 
@@ -15,8 +14,8 @@ public class MainActivity : AndroidPlatformHost
 {
     protected override void ConfigureApp(IPlatformApplicationContext context)
     {
-        context.ConfigureServices(RayoCrossPlatformApp.AppSetup.ConfigureServices);
-        context.SetUI<RayoCrossPlatformApp.MainView>();
+        context.ConfigureServices(AppSetup.ConfigureServices);
+        context.SetUI<MainView>();
     }
 
     protected override void ConfigureWindow(IPlatformWindowConfiguration config)

@@ -2,13 +2,21 @@ using Rayo;
 using Rayo.Controls;
 using Rayo.Core;
 using Rayo.Layout;
+using Rayo.Reactivity;
 using Rayo.Rendering;
 
 namespace RayoCrossPlatformApp;
 
 public class MainView : Component
 {
-    private int _clickCount;
+    private readonly Signal<int> _counter;
+    private readonly Computed<string> _counterText;
+
+    public MainView()
+    {
+        _counter = UseSignal(0);
+        _counterText = UseComputed(() => $"Taps: {_counter.Value}");
+    }
 
     public override VisualElement Build()
     {
@@ -35,22 +43,17 @@ public class MainView : Component
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Label()
-                            .Text($"Shared clicks: {_clickCount}")
+                            .Text(_counterText)
                             .FontSize(20)
                             .Foreground(new Color(125, 211, 252))
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Button()
                             .Text("Tap me")
+                            .FontSize(20)
                             .Width(160)
                             .Height(48)
-                            .OnTapped(OnButtonTapped)
+                            .OnTapped(() => _counter.Value++)
                     ));
-    }
-
-    private void OnButtonTapped()
-    {
-        _clickCount++;
-        Rebuild();
     }
 }

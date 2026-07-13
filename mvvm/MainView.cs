@@ -9,10 +9,15 @@ namespace RayoMvvmApp;
 
 public sealed class MainView : ViewBase<MainViewModel>
 {
+    private Computed<string>? _counterText;
+
+    protected override void OnViewModelReady()
+    {
+        _counterText ??= UseComputed(() => $"Clicks: {ViewModel.Counter.Value}");
+    }
+
     public override VisualElement Build()
     {
-        var counterText = new Computed<string>(() => $"Clicks: {ViewModel.Counter.Value}");
-
         return new Frame()
             .Background(new Color(18, 24, 38))
             .Content(
@@ -36,7 +41,7 @@ public sealed class MainView : ViewBase<MainViewModel>
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Label()
-                            .Text(counterText)
+                            .Text(_counterText!)
                             .FontSize(20)
                             .Foreground(new Color(110, 231, 183))
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
