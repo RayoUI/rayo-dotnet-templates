@@ -1,17 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <PackageId>Rayo.Templates</PackageId>
-    <Version>0.1.8</Version>
+    <Version>0.1.10</Version>
     <Title>Rayo Templates</Title>
-    <Description>dotnet new templates for creating Rayo desktop and cross-platform applications.</Description>
+    <Description>dotnet new templates for creating Rayo desktop, cross-platform, and MVVM applications.</Description>
     <Authors>RayoUI</Authors>
     <PackageProjectUrl>https://github.com/RayoUI/rayo-dotnet-templates</PackageProjectUrl>
     <RepositoryUrl>https://github.com/RayoUI/rayo-dotnet-templates</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>dotnet-new;template;rayo;ui;desktop;android</PackageTags>
+    <PackageTags>dotnet-new;template;rayo;ui;desktop;android;mvvm</PackageTags>
     <PackageType>Template</PackageType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -21,8 +21,15 @@
 
   <ItemGroup>
     <Content Include="README.md" Pack="true" PackagePath="" />
-    <Content Include="desktop\**\*" Pack="true" PackagePath="content\desktop" />
-    <Content Include="crossplatform\**\*" Pack="true" PackagePath="content\crossplatform" />
+    <Content Include="desktop\**\*"
+             Exclude="desktop\bin\**\*;desktop\obj\**\*;desktop\Generated\**\*;desktop\*.user"
+             Pack="true" PackagePath="content\desktop" />
+    <Content Include="crossplatform\**\*"
+             Exclude="crossplatform\**\bin\**\*;crossplatform\**\obj\**\*;crossplatform\**\Generated\**\*;crossplatform\**\*.user"
+             Pack="true" PackagePath="content\crossplatform" />
+    <Content Include="mvvm\**\*"
+             Exclude="mvvm\bin\**\*;mvvm\obj\**\*;mvvm\Generated\**\*;mvvm\*.user"
+             Pack="true" PackagePath="content\mvvm" />
   </ItemGroup>
 
 </Project>

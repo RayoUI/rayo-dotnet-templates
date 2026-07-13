@@ -15,7 +15,7 @@
     <NoWarn>$(NoWarn);XA0141</NoWarn>
     <RootNamespace>RayoCrossPlatformApp.Android</RootNamespace>
     <AssemblyName>RayoCrossPlatformApp.Android</AssemblyName>
-    <RayoVersion>0.1.8</RayoVersion>
+    <RayoVersion>0.1.10</RayoVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

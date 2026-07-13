@@ -6,7 +6,7 @@ using Rayo.Rendering;
 
 namespace RayoCrossPlatformApp;
 
-public class MainView : UserControl
+public class MainView : Component
 {
     private int _clickCount;
 

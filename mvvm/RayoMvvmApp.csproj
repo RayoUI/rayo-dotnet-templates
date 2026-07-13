@@ -9,8 +9,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
-    <RootNamespace>RayoDesktopApp</RootNamespace>
-    <AssemblyName>RayoDesktopApp</AssemblyName>
+    <RootNamespace>RayoMvvmApp</RootNamespace>
+    <AssemblyName>RayoMvvmApp</AssemblyName>
     <RayoVersion>0.1.10</RayoVersion>
     <SourceGeneratorNamespace>$(RootNamespace).Extensions</SourceGeneratorNamespace>
     <HotReloadEnabled Condition="'$(Configuration)' == 'Debug'">true</HotReloadEnabled>

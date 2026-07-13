@@ -11,8 +11,10 @@
     <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
     <RootNamespace>RayoCrossPlatformApp</RootNamespace>
     <AssemblyName>RayoCrossPlatformApp</AssemblyName>
-    <RayoVersion>0.1.8</RayoVersion>
+    <RayoVersion>0.1.10</RayoVersion>
     <SourceGeneratorNamespace>$(RootNamespace).Extensions</SourceGeneratorNamespace>
+    <HotReloadEnabled Condition="'$(Configuration)' == 'Debug'">true</HotReloadEnabled>
+    <HotReloadSupported Condition="'$(Configuration)' == 'Debug'">true</HotReloadSupported>
   </PropertyGroup>
 
   <ItemGroup>

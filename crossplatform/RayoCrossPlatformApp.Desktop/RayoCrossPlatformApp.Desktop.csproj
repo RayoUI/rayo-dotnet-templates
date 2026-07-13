@@ -9,7 +9,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RootNamespace>RayoCrossPlatformApp.Desktop</RootNamespace>
     <AssemblyName>RayoCrossPlatformApp.Desktop</AssemblyName>
-    <RayoVersion>0.1.8</RayoVersion>
+    <RayoVersion>0.1.10</RayoVersion>
+    <HotReloadEnabled Condition="'$(Configuration)' == 'Debug'">true</HotReloadEnabled>
+    <HotReloadSupported Condition="'$(Configuration)' == 'Debug'">true</HotReloadSupported>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,16 +2,17 @@ using Rayo;
 using Rayo.Controls;
 using Rayo.Core;
 using Rayo.Layout;
+using Rayo.Reactivity;
 using Rayo.Rendering;
 
-namespace RayoDesktopApp;
+namespace RayoMvvmApp;
 
-public class MainView : Component
+public sealed class MainView : ViewBase<MainViewModel>
 {
-    private int _clickCount;
-
     public override VisualElement Build()
     {
+        var counterText = new Computed<string>(() => $"Clicks: {ViewModel.Counter.Value}");
+
         return new Frame()
             .Background(new Color(18, 24, 38))
             .Content(
@@ -23,34 +24,28 @@ public class MainView : Component
                     .VerticalAlignment(VerticalAlignment.Stretch)
                     .Children(
                         new Label()
-                            .Text("Welcome to Rayo")
+                            .Text("Welcome to Rayo MVVM")
                             .FontSize(30)
                             .Foreground(Color.White)
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Label()
-                            .Text("Your first Rayo desktop app is running with the published NuGet packages.")
+                            .Text("The view is bound to a reactive view model resolved from DI.")
                             .FontSize(16)
                             .Foreground(new Color(180, 188, 204))
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Label()
-                            .Text($"Clicks: {_clickCount}")
+                            .Text(counterText)
                             .FontSize(20)
                             .Foreground(new Color(110, 231, 183))
                             .TextHorizontalAlignment(HorizontalAlignment.Center)
                             .HorizontalAlignment(HorizontalAlignment.Center),
                         new Button()
-                            .Text("Click me")
+                            .Text("Increment")
                             .Width(160)
                             .Height(48)
-                            .OnTapped(OnButtonTapped)
+                            .OnTapped(ViewModel.IncrementCounter)
                     ));
-    }
-
-    private void OnButtonTapped()
-    {
-        _clickCount++;
-        Rebuild();
     }
 }
