@@ -49,6 +49,12 @@ dotnet new uninstall Rayo.Templates
 dotnet new install bin\Release\Rayo.Templates.*.nupkg
 ```
 
+## Uninstall from nugets 
+
+```powershell
+dotnet new install Rayo.Templates
+```
+
 ## Create a desktop app
 
 ```powershell
