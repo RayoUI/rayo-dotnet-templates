@@ -19,9 +19,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rayo" Version="$(RayoVersion)" />
-    <PackageReference Include="Rayo.Hosting.Desktop" Version="$(RayoVersion)" />
-    <PackageReference Include="Rayo.FluentApiGenerator" Version="$(RayoVersion)" PrivateAssets="all" />
+    <PackageReference Include="Rayo" Version="0.1.11" />
+    <PackageReference Include="Rayo.Hosting.Desktop" Version="0.1.11" />
+    <PackageReference Include="Rayo.FluentApiGenerator" Version="0.1.11" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

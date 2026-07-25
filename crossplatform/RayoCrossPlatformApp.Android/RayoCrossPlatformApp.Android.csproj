@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rayo.Hosting.Android" Version="$(RayoVersion)" />
+    <PackageReference Include="Rayo.Hosting.Android" Version="0.1.11" />
   </ItemGroup>
 
   <ItemGroup>
