@@ -1,4 +1,4 @@
-#.\Scripts\Publish-GitHubActions.ps1 -Version 0.1.16
+#.\Scripts\Publish-GitHubActions.ps1 -Version 0.1.17
 
 [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
 param(
