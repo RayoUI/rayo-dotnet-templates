@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rayo.Hosting.Desktop" Version="0.1.11" />
+    <PackageReference Include="Rayo.Hosting.Desktop" Version="0.1.14" />
   </ItemGroup>
 
   <ItemGroup>
